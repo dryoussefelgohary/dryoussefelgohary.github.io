@@ -9,6 +9,12 @@ const SPEC = [
  {id:"ortho",ar:"تقويم الأسنان",en:"Orthodontics",d_ar:"التشخيص وتخطيط العلاج وتركيب وضبط الجهاز الثابت.",d_en:"Diagnosis, treatment planning, and placing and adjusting fixed appliances.",ic:"M3 12h18M7 8v8M12 8v8M17 8v8"},
  {id:"perio",ar:"علاج اللثة",en:"Periodontics",d_ar:"تنظيف الجير والتقليح، علاج التهابات اللثة والحفاظ على صحة الأنسجة الداعمة.",d_en:"Scaling and root planing, gum disease treatment and protecting supporting tissues.",ic:"M3 15c3-6 6-6 9 0s6 6 9 0"}
 ];
+const PR = [
+ {g_ar:"الكشف والوقاية",g_en:"Exam and prevention",items:[["exam","كشف واستشارة","Examination and consultation"],["cleaning","تنظيف وإزالة الجير","Scaling and polishing"],["fluoride","فلورايد وسدّ شقوق للأطفال","Fluoride and sealants (children)"]]},
+ {g_ar:"علاج تحفظي وجذور",g_en:"Restorative and endodontics",items:[["filling","حشو تجميلي (كومبوزيت)","Composite filling"],["rootCanal","علاج قناة الجذر","Root canal treatment"],["childFilling","حشو أسنان لبنية","Primary tooth filling"]]},
+ {g_ar:"جراحة ولثة",g_en:"Surgery and gums",items:[["extraction","خلع بسيط","Simple extraction"],["surgicalExtraction","خلع جراحي","Surgical extraction"],["gumTreatment","علاج التهاب اللثة","Gum treatment"]]},
+ {g_ar:"تركيبات وتقويم",g_en:"Prosthodontics and orthodontics",items:[["crown","تاج (كراون)","Crown"],["denture","طقم أسنان","Denture"],["braces","تقويم (الجهاز الثابت)","Braces (fixed appliance)"]]}
+];
 let lang = localStorage.getItem("lang") || "ar";
 const $ = (s,r=document)=>r.querySelector(s);
 const t = (o,k)=> o[k+"_"+lang] || o[k+(lang==="ar"?"":"")] ;
@@ -22,7 +28,7 @@ function applyLang(){
   document.body.classList.toggle("en", lang==="en");
   document.querySelectorAll("[data-ar]").forEach(e=>{ e.textContent = e.dataset[lang]; });
   $("#lang").textContent = lang==="ar"?"EN":"عربي";
-  renderUni(); renderSkills(); renderTabs(); renderPanel(); renderContact();
+  renderUni(); renderSkills(); renderPrices(); renderBooking(); renderTabs(); renderPanel(); renderContact();
 }
 function renderUni(){
   const u = lang==="ar"?S.universityAr:S.university;
@@ -31,6 +37,30 @@ function renderUni(){
   el.textContent = u ? u+yr : "";
   el.style.display = u ? "" : "none";
 }
+function renderPrices(){
+  const P=S.prices||{}; const cur = lang==="ar"?(S.currency||"ج.م"):(S.currencyEn||"EGP");
+  $("#priceGrid").innerHTML = PR.map(g=>`<article class="pcard"><h3>${lang==="ar"?g.g_ar:g.g_en}</h3><ul>${g.items.map(i=>{const v=(P[i[0]]||"").toString().trim();return `<li><span>${lang==="ar"?i[1]:i[2]}</span><b class="${v?"":"soon"}">${v?v+" "+cur:(lang==="ar"?"قريبًا":"Soon")}</b></li>`}).join("")}</ul></article>`).join("");
+}
+function renderBooking(){
+  const sel=$("#bSvc"), cur=sel.value;
+  sel.innerHTML = SPEC.map(s=>`<option value="${nm(s)}">${nm(s)}</option>`).join("")+`<option value="${lang==="ar"?"كشف عام":"General exam"}">${lang==="ar"?"كشف عام":"General exam"}</option>`;
+  if(cur) sel.value=cur;
+  const rows=[];
+  const addr=lang==="ar"?S.address:(S.addressEn||S.address), hrs=lang==="ar"?S.hours:(S.hoursEn||S.hours);
+  if(S.clinicName) rows.push(["🏥",S.clinicName]);
+  if(addr) rows.push(["📍",addr+(S.mapUrl?` <a href="${S.mapUrl}" target="_blank" rel="noopener">${lang==="ar"?"الخريطة":"Map"}</a>`:"")]);
+  if(hrs) rows.push(["🕒",hrs]);
+  if(S.phone) rows.push(["📞",`<span dir="ltr">${S.phone}</span>`]);
+  $("#clinicInfo").innerHTML = rows.length? rows.map(r=>`<div><i>${r[0]}</i><span>${r[1]}</span></div>`).join("") : `<div class="soon-note">${lang==="ar"?"عنوان العيادة ومواعيد العمل قريبًا.":"Clinic address and opening hours coming soon."}</div>`;
+}
+$("#bookForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const msg = (lang==="ar"
+   ? `طلب حجز موعد\nالاسم: ${$("#bName").value}\nالموبايل: ${$("#bPhone").value}\nالخدمة: ${$("#bSvc").value}\nاليوم المفضل: ${$("#bDay").value||"-"}\nملاحظات: ${$("#bNote").value||"-"}`
+   : `Booking request\nName: ${$("#bName").value}\nMobile: ${$("#bPhone").value}\nService: ${$("#bSvc").value}\nPreferred day: ${$("#bDay").value||"-"}\nNotes: ${$("#bNote").value||"-"}`);
+  if(S.whatsapp) location.href="https://wa.me/"+S.whatsapp.replace(/\D/g,"")+"?text="+encodeURIComponent(msg);
+  else if(S.email) location.href="mailto:"+S.email+"?subject="+encodeURIComponent(lang==="ar"?"طلب حجز موعد":"Booking request")+"&body="+encodeURIComponent(msg);
+});
 function renderSkills(){
   $("#skillGrid").innerHTML = SPEC.map(s=>`<article class="skill"><div class="ic">${icon(s.ic)}</div><h3>${nm(s)}</h3><p>${ds(s)}</p></article>`).join("");
 }
@@ -76,5 +106,7 @@ document.querySelectorAll("#links a").forEach(a=>a.onclick=()=>$("#nav").classLi
 addEventListener("scroll",()=>$("#nav").classList.toggle("solid",scrollY>30),{passive:true});
 const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{threshold:.12});
 function reveal(){document.querySelectorAll(".sec .wrap > *").forEach(e=>{e.classList.add("rv");io.observe(e);});}
+const bar=document.createElement("div");bar.className="progress";document.body.appendChild(bar);
+addEventListener("scroll",()=>{bar.style.width=(scrollY/(document.documentElement.scrollHeight-innerHeight)*100)+"%"},{passive:true});
 applyLang(); if(!location.search.includes("shot")) reveal();
 })();
