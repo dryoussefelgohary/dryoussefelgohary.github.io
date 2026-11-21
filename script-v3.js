@@ -57,16 +57,17 @@ function render(){
  route();
 }
 function img(u){return u?'<img loading="lazy" src="'+esc(SB.photoUrl(u))+'" alt="">':""}
+function ctitle(c){const p=String(c.title||"").split("\u00b7").map(x=>x.trim());return p.length===2?esc(p[lang==="ar"?0:1]):esc(c.title||"")}
 function renderCases(){
  const cats=[...new Set(cases.map(c=>c.specialty))];
  $("#filters").innerHTML=cats.length>1?['all'].concat(cats).map(c=>'<button data-c="'+c+'" class="'+(flt===c?"on":"")+'">'+esc(c==="all"?t("c_all"):T[lang].cat[c]||c)+'</button>').join(""):"";
  const list=cases.filter(c=>flt==="all"||c.specialty===flt);
- $("#cases-list").innerHTML=list.length?list.map(c=>'<article class="card" tabindex="0" data-id="'+c.id+'"><div class="im">'+img(c.before_url)+img(c.after_url)+'<span class="l">'+t("before")+" / "+t("after")+'</span></div><div class="tx"><div class="cat">'+esc(T[lang].cat[c.specialty]||c.specialty)+'</div><h3>'+esc(c.title)+'</h3><p>'+esc((c.summary||"").slice(0,140))+'</p></div></article>').join(""):'<div class="empty" style="grid-column:1/-1">'+esc(t("c_empty"))+'</div>';
+ $("#cases-list").innerHTML=list.length?list.map(c=>'<article class="card" tabindex="0" data-id="'+c.id+'"><div class="im">'+img(c.before_url)+img(c.after_url)+'<span class="l">'+t("before")+" / "+t("after")+'</span></div><div class="tx"><div class="cat">'+esc(T[lang].cat[c.specialty]||c.specialty)+'</div><h3>'+ctitle(c)+'</h3><p>'+esc((c.summary||"").slice(0,140))+'</p></div></article>').join(""):'<div class="empty" style="grid-column:1/-1">'+esc(t("c_empty"))+'</div>';
 }
 const SVC_HEADS=[{k:"what",en:"What is this procedure?",ar:"يعني إيه الإجراء ده؟"},{k:"when",en:"When might you need it?",ar:"إمتى ممكن تحتاجه؟"},{k:"how",en:"How is it done?",ar:"بيتعمل إزاي؟"},{k:"pain",en:"Is it painful?",ar:"هل الإجراء مؤلم؟"},{k:"sessions",en:"Expected sessions",ar:"عدد الجلسات المتوقع"},{k:"after",en:"Aftercare instructions",ar:"تعليمات بعد العلاج"}];
 const SVC_DETAILS={
  "Preventive Dentistry": {
-  "img": "https://images.pexels.com/photos/3845942/pexels-photo-3845942.jpeg?auto=compress&cs=tinysrgb&w=640",
+  "img": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMjAgMTQwIj48cGF0aCBkPSJNNzUgMzdjLTE3LTEyLTM0IDAtMjcgMjRsOSAzNGM1IDE1IDExIDEgMTQtMTMgMi03IDYtNyA4IDAgMyAxNCA5IDI4IDE0IDEzbDktMzRjNy0yNC0xMC0zNi0yNy0yNHoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzBiMWYzYSIgc3Ryb2tlLXdpZHRoPSIzIi8+PHBhdGggZD0iTTE2OCAzMGwzMiAxMnYyNGMwIDI4LTE3IDQzLTMyIDUwLTE1LTctMzItMjItMzItNTBWNDJ6IiBmaWxsPSJub25lIiBzdHJva2U9IiNjOGE5NmEiIHN0cm9rZS13aWR0aD0iMyIvPjxwYXRoIGQ9Ik0xNTQgNzBsMTAgMTAgMjAtMjIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2M4YTk2YSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=",
   "en": {
    "what": "Regular check-ups, professional cleaning (scaling and polishing) and guidance to keep teeth and gums healthy and catch problems early.",
    "when": "Regular reviews are scheduled according to your oral health and risk, not a fixed interval for everyone. Contact a dentist if your gums bleed or you develop new symptoms.",
@@ -85,7 +86,7 @@ const SVC_DETAILS={
   }
  },
  "Restorative Dentistry": {
-  "img": "https://images.pexels.com/photos/13264624/pexels-photo-13264624.jpeg?auto=compress&cs=tinysrgb&w=640",
+  "img": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMjAgMTQwIj48cGF0aCBkPSJNNzUgMzdjLTE3LTEyLTM0IDAtMjcgMjRsOSAzNGM1IDE1IDExIDEgMTQtMTMgMi03IDYtNyA4IDAgMyAxNCA5IDI4IDE0IDEzbDktMzRjNy0yNC0xMC0zNi0yNy0yNHoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzBiMWYzYSIgc3Ryb2tlLXdpZHRoPSIzIi8+PHBhdGggZD0iTTYyIDUyYzctNyAxOS03IDI2IDBsLTMgMTZINjV6IiBmaWxsPSIjYzhhOTZhIi8+PHBhdGggZD0iTTE2MCA0NWw1IDEyIDEyIDUtMTIgNS01IDEyLTUtMTItMTItNSAxMi01eiIgZmlsbD0iI2M4YTk2YSIvPjxwYXRoIGQ9Ik0xODYgODhsMyA4IDggMy04IDMtMyA4LTMtOC04LTMgOC0zeiIgZmlsbD0iI2M4YTk2YSIvPjwvc3ZnPg==",
   "en": {
    "what": "Fillings and restorations that repair decayed or damaged teeth and restore their shape and function.",
    "when": "When there is decay, a chipped or broken tooth, an old failing filling, or sensitivity to sweets and cold drinks.",
@@ -104,7 +105,7 @@ const SVC_DETAILS={
   }
  },
  "Endodontics": {
-  "img": "https://images.pexels.com/photos/5355837/pexels-photo-5355837.jpeg?auto=compress&cs=tinysrgb&w=640",
+  "img": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMjAgMTQwIj48cGF0aCBkPSJNNzUgMzdjLTE3LTEyLTM0IDAtMjcgMjRsOSAzNGM1IDE1IDExIDEgMTQtMTMgMi03IDYtNyA4IDAgMyAxNCA5IDI4IDE0IDEzbDktMzRjNy0yNC0xMC0zNi0yNy0yNHoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzBiMWYzYSIgc3Ryb2tlLXdpZHRoPSIzIi8+PHBhdGggZD0iTTc1IDUwdjI4bTAgMC05IDI0bTktMjQgOSAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzhhOTZhIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxjaXJjbGUgY3g9IjY2IiBjeT0iMTA1IiByPSIzLjUiIGZpbGw9IiNjOGE5NmEiLz48Y2lyY2xlIGN4PSI4NCIgY3k9IjEwNSIgcj0iMy41IiBmaWxsPSIjYzhhOTZhIi8+PGNpcmNsZSBjeD0iMTY1IiBjeT0iNzAiIHI9IjM0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwYjFmM2EiIHN0cm9rZS13aWR0aD0iMyIgb3BhY2l0eT0iLjI1Ii8+PC9zdmc+",
   "en": {
    "what": "Root canal treatment removes infected or inflamed pulp from inside the tooth, then seals the canals to relieve pain and save the natural tooth when possible.",
    "when": "Deep decay reaching the nerve, severe or night pain, long-lasting sensitivity to hot or cold, or an abscess.",
@@ -123,7 +124,7 @@ const SVC_DETAILS={
   }
  },
  "Cosmetic Dentistry": {
-  "img": "https://images.pexels.com/photos/6627572/pexels-photo-6627572.jpeg?auto=compress&cs=tinysrgb&w=640",
+  "img": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMjAgMTQwIj48cGF0aCBkPSJNNzUgMzdjLTE3LTEyLTM0IDAtMjcgMjRsOSAzNGM1IDE1IDExIDEgMTQtMTMgMi03IDYtNyA4IDAgMyAxNCA5IDI4IDE0IDEzbDktMzRjNy0yNC0xMC0zNi0yNy0yNHoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzBiMWYzYSIgc3Ryb2tlLXdpZHRoPSIzIi8+PHBhdGggZD0iTTE1NSAzOGw2IDE0IDE0IDYtMTQgNi02IDE0LTYtMTQtMTQtNiAxNC02eiIgZmlsbD0iI2M4YTk2YSIvPjxwYXRoIGQ9Ik0xOTAgODJsNCA5IDkgNC05IDQtNCA5LTQtOS05LTQgOS00eiIgZmlsbD0iI2M4YTk2YSIvPjxwYXRoIGQ9Ik00NSAxMTJjMjAgMTAgNDAgMTIgNjIgOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzhhOTZhIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvc3ZnPg==",
   "en": {
    "what": "Whitening, bonding, veneers and smile design to improve the look of teeth while respecting their natural character.",
    "when": "Stains, small gaps, uneven edges, or discolored and slightly misshapen front teeth.",
@@ -142,7 +143,7 @@ const SVC_DETAILS={
   }
  },
  "Prosthodontics": {
-  "img": "https://images.pexels.com/photos/6627600/pexels-photo-6627600.jpeg?auto=compress&cs=tinysrgb&w=640",
+  "img": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMjAgMTQwIj48cGF0aCBkPSJNNzUgMzdjLTE3LTEyLTM0IDAtMjcgMjRsOSAzNGM1IDE1IDExIDEgMTQtMTMgMi03IDYtNyA4IDAgMyAxNCA5IDI4IDE0IDEzbDktMzRjNy0yNC0xMC0zNi0yNy0yNHoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzBiMWYzYSIgc3Ryb2tlLXdpZHRoPSIzIi8+PHBhdGggZD0iTTE0MCA0OGw5LTE4IDExIDEzIDExLTEzIDExIDEzIDktMTh2MjdoLTUxeiIgZmlsbD0iI2M4YTk2YSIgc3Ryb2tlPSIjMGIxZjNhIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cmVjdCB4PSIxNDAiIHk9Ijc4IiB3aWR0aD0iNTEiIGhlaWdodD0iNyIgcng9IjMuNSIgZmlsbD0iIzBiMWYzYSIvPjxwYXRoIGQ9Ik0xNDAgMTAwYzE2IDggMzQgOCA1MSAwIiBmaWxsPSJub25lIiBzdHJva2U9IiNjOGE5NmEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+",
   "en": {
    "what": "Crowns, bridges and dentures that rebuild damaged teeth or replace missing ones to restore chewing and appearance.",
    "when": "Heavily broken or root-treated teeth, missing teeth, or old failing replacements.",
@@ -161,7 +162,7 @@ const SVC_DETAILS={
   }
  },
  "Oral Surgery": {
-  "img": "https://images.pexels.com/photos/3845941/pexels-photo-3845941.jpeg?auto=compress&cs=tinysrgb&w=640",
+  "img": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMjAgMTQwIj48cGF0aCBkPSJNNzUgMzdjLTE3LTEyLTM0IDAtMjcgMjRsOSAzNGM1IDE1IDExIDEgMTQtMTMgMi03IDYtNyA4IDAgMyAxNCA5IDI4IDE0IDEzbDktMzRjNy0yNC0xMC0zNi0yNy0yNHoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzBiMWYzYSIgc3Ryb2tlLXdpZHRoPSIzIi8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMGIxZjNhIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTE1MiAzNGwyNiAzMiIvPjxwYXRoIGQ9Ik0xODIgMzRsLTI2IDMyIi8+PHBhdGggZD0iTTE2NSA2OGwtOCAxMm04LTEyIDggMTIiLz48L2c+PGNpcmNsZSBjeD0iMTQ5IiBjeT0iMjkiIHI9IjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzBiMWYzYSIgc3Ryb2tlLXdpZHRoPSIzIi8+PGNpcmNsZSBjeD0iMTg1IiBjeT0iMjkiIHI9IjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzBiMWYzYSIgc3Ryb2tlLXdpZHRoPSIzIi8+PGNpcmNsZSBjeD0iMTY2IiBjeT0iNTAiIHI9IjQiIGZpbGw9IiNjOGE5NmEiLz48L3N2Zz4=",
   "en": {
    "what": "Simple and surgical extractions, wisdom tooth removal and minor surgical procedures inside the mouth, according to case assessment.",
    "when": "Teeth that cannot be restored, problematic wisdom teeth, retained roots, or as part of a wider treatment plan.",
@@ -195,7 +196,7 @@ function cmp(c){return '<div><div class="cmp" style="--p:50%"><img src="'+esc(SB
 function wireCmp(root){root.querySelectorAll(".cmp").forEach(el=>{const a=el.querySelector(".aft"),b=el.querySelector(".bar");el.querySelector("input").addEventListener("input",e=>{const v=e.target.value;a.style.clipPath="inset(0 0 0 "+v+"%)";b.style.left=v+"%"})})}
 function renderGallery(){
  const g=cases.filter(c=>c.before_url&&c.after_url);
- $("#gal").innerHTML=g.length?g.map(c=>'<div>'+cmp(c)+'<div class="gcap">'+esc(c.title)+'</div></div>').join(""):'<div class="empty" style="grid-column:1/-1">'+esc(t("g_empty"))+'</div>';
+ $("#gal").innerHTML=g.length?g.map(c=>'<div>'+cmp(c)+'<div class="gcap">'+ctitle(c)+'</div></div>').join(""):'<div class="empty" style="grid-column:1/-1">'+esc(t("g_empty"))+'</div>';
  wireCmp($("#gal"));
 }
 function renderReviews(){const s=$("#reviews");s.hidden=!reviews.length;$("#rv").innerHTML=reviews.map(r=>'<blockquote>'+(r.rating?'<div class="st">'+"&#9733;".repeat(r.rating)+'</div>':"")+'<p>'+esc(r.body)+'</p><cite>'+esc(r.author)+'</cite></blockquote>').join("")}
@@ -234,7 +235,7 @@ function route(){
  if(!m){ov.classList.remove("on");document.body.style.overflow="";return}
  const c=cases.find(x=>x.id===m[1]);if(!c){return}
  const box=(k,v)=>v?'<div class="box"><h3>'+esc(t(k))+'</h3><p>'+esc(v)+'</p></div>':"";
- $("#cd").innerHTML='<div class="eyebrow">'+esc(T[lang].cat[c.specialty]||c.specialty)+'</div><h1>'+esc(c.title)+'</h1>'+((c.before_url&&c.after_url)?cmp(c):"")+box("cd_desc",c.summary)+box("cd_diag",c.diagnosis)+box("cd_plan",c.plan)+box("cd_steps",c.steps)+box("cd_res",c.result);
+ $("#cd").innerHTML='<div class="eyebrow">'+esc(T[lang].cat[c.specialty]||c.specialty)+'</div><h1>'+ctitle(c)+'</h1>'+((c.before_url&&c.after_url)?cmp(c):"")+box("cd_desc",c.summary)+box("cd_diag",c.diagnosis)+box("cd_plan",c.plan)+box("cd_steps",c.steps)+box("cd_res",c.result);
  wireCmp($("#cd"));ov.classList.add("on");ov.scrollTop=0;document.body.style.overflow="hidden";
 }
 /* data */
@@ -258,7 +259,7 @@ document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.classList.c
 function closeCase(){if(location.hash.startsWith("#/case/"))location.hash="#cases"}
 $("#ovx").onclick=closeCase;$("#svcm-x").onclick=closeSvc;$("#svcm").addEventListener("click",e=>{if(e.target.id==="svcm")closeSvc()});window.addEventListener("hashchange",route);
 $("#lang").onclick=()=>{lang=lang==="ar"?"en":"ar";localStorage.setItem("lang",lang);render()};
-$("#burger").onclick=()=>$("#menu").classList.toggle("open");
+$("#burger").onclick=()=>{const o=$("#menu").classList.toggle("open");$("#burger").innerHTML=o?"&times;":"&#9776;"};$$("#menu a").forEach(a=>a.addEventListener("click",()=>{$("#menu").classList.remove("open");$("#burger").innerHTML="&#9776;"}));
 $("#menu").addEventListener("click",()=>$("#menu").classList.remove("open"));
 const nav=$("#nav");addEventListener("scroll",()=>nav.classList.toggle("solid",scrollY>30),{passive:true});
 if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.12});$$(".rev").forEach(r=>io.observe(r))}else $$(".rev").forEach(r=>r.classList.add("in"));
