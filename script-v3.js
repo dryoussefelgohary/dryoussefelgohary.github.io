@@ -195,7 +195,7 @@ function cmp(c){return '<div><div class="cmp" style="--p:50%"><img src="'+esc(SB
 function wireCmp(root){root.querySelectorAll(".cmp").forEach(el=>{const a=el.querySelector(".aft"),b=el.querySelector(".bar");el.querySelector("input").addEventListener("input",e=>{const v=e.target.value;a.style.clipPath="inset(0 0 0 "+v+"%)";b.style.left=v+"%"})})}
 function renderGallery(){
  const g=cases.filter(c=>c.before_url&&c.after_url);
- $("#gal").innerHTML=g.length?g.map(c=>cmp(c).replace(/<\/div><\/div>$/,'<div class="gcap">'+esc(c.title)+'</div></div></div>')).join(""):'<div class="empty" style="grid-column:1/-1">'+esc(t("g_empty"))+'</div>';
+ $("#gal").innerHTML=g.length?g.map(c=>'<div>'+cmp(c)+'<div class="gcap">'+esc(c.title)+'</div></div>').join(""):'<div class="empty" style="grid-column:1/-1">'+esc(t("g_empty"))+'</div>';
  wireCmp($("#gal"));
 }
 function renderReviews(){const s=$("#reviews");s.hidden=!reviews.length;$("#rv").innerHTML=reviews.map(r=>'<blockquote>'+(r.rating?'<div class="st">'+"&#9733;".repeat(r.rating)+'</div>':"")+'<p>'+esc(r.body)+'</p><cite>'+esc(r.author)+'</cite></blockquote>').join("")}
