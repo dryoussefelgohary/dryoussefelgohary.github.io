@@ -19,7 +19,11 @@ async function enable(btn){
     var j = sub.toJSON();
     await SB.rest("push_subscriptions?on_conflict=endpoint", { method: "POST", headers: { Prefer: "resolution=merge-duplicates" }, body: { endpoint: j.endpoint, keys: j.keys } });
     btn.textContent = "Phone notifications on / الإشعارات مفعّلة ✓";
-  }catch(e){ btn.disabled = false; btn.textContent = "Retry notifications / إعادة المحاولة"; }
+  }catch(e){
+    btn.disabled = false;
+    var m = String((e && e.message) || e).slice(0, 90);
+    btn.textContent = "Error: " + m;
+  }
 }
 window.addEventListener("load", function(){
   var host = document.querySelector("#app .top .wrap span");
@@ -34,7 +38,15 @@ window.addEventListener("load", function(){
   } else if("serviceWorker" in navigator){
     navigator.serviceWorker.register("/sw.js").then(async function(reg){
       var sub = await reg.pushManager.getSubscription();
-      if(sub) b.textContent = "Phone notifications on / الإشعارات مفعّلة ✓";
+      if(sub){
+        try{
+          var j = sub.toJSON();
+          await SB.rest("push_subscriptions?on_conflict=endpoint", { method: "POST", headers: { Prefer: "resolution=merge-duplicates" }, body: { endpoint: j.endpoint, keys: j.keys } });
+          b.textContent = "Phone notifications on / الإشعارات مفعّلة ✓";
+        }catch(e){
+          b.textContent = "Error: " + String((e && e.message) || e).slice(0, 90);
+        }
+      }
     }).catch(function(){});
   }
 });
