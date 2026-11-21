@@ -8,14 +8,14 @@
 <meta name="theme-color" content="#0b1f3a"><link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20261121b">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dentist","name":"Dr Youssef Elgohary","address":{"@type":"PostalAddress","addressLocality":"Zagazig","addressRegion":"Sharqia","addressCountry":"EG"}}</script>
 </head>
 <body>
 <header class="nav" id="nav"><div class="wrap">
  <a class="brand" href="#top"><i>YE</i><span data-i18n="brand">Dr Youssef Elgohary</span></a>
  <nav class="menu" id="menu">
-  <a href="#about" data-i18n="n_about">About</a><a href="#cases" data-i18n="n_cases">Cases</a><a href="#services" data-i18n="n_services">Services</a><a href="#gallery" data-i18n="n_gallery">Smile Gallery</a><a href="#book" data-i18n="n_book">Book</a><a href="#contact" data-i18n="n_contact">Contact</a>
+  <a href="#about" data-i18n="n_about">About</a><a href="#cases" data-i18n="n_cases">Cases</a><a href="#services" data-i18n="n_services">Services</a><a href="#care" data-i18n="n_care">Dental care</a><a href="#gallery" data-i18n="n_gallery">Smile Gallery</a><a href="#book" data-i18n="n_book">Book</a><a href="#contact" data-i18n="n_contact">Contact</a>
  </nav>
  <div style="display:flex;gap:10px;align-items:center"><button class="lang" id="lang" aria-label="Language">AR | EN</button><button class="burger" id="burger" aria-label="Menu">&#9776;</button></div>
 </div></header>
@@ -51,6 +51,7 @@
  <div class="note" data-i18n="s_note">Treatment is determined according to each patient's needs. Prices may vary depending on the complexity of the case, the materials used, and the required treatment plan. An examination is necessary to determine the appropriate treatment and final cost.</div>
 </div></section>
 
+<section class="care" id="care"><div class="wrap"><div class="eyebrow" data-i18n="n_care">Dental care</div><h2 data-i18n="care_title">Small habits. Healthier smiles.</h2><p class="lead" data-i18n="care_lead">General guidance, adapted to you by your dentist.</p><div id="care-list" class="care-grid"></div><p class="care-disclaimer" data-i18n="care_disclaimer">Educational guidance, not a diagnosis or a substitute for personal dental advice.</p><p class="care-sources">Sources: <a href="https://www.nhs.uk/live-well/healthy-teeth-and-gums/how-to-keep-your-teeth-clean/" target="_blank" rel="noopener">NHS</a> · <a href="https://www.ada.org/resources/ada-library/oral-health-topics/home-care" target="_blank" rel="noopener">ADA home care</a> · <a href="https://www.mouthhealthy.org/all-topics-a-z/brushing-your-teeth/" target="_blank" rel="noopener">ADA brushing</a></p></div></section>
 <section id="gallery"><div class="wrap">
  <div class="rev"><div class="eyebrow" data-i18n="n_gallery">Smile Gallery</div><h2 data-i18n="g_title">Smile Gallery</h2><p class="lead" data-i18n="g_lead">Drag the slider to compare before and after. Results vary from patient to patient.</p></div>
  <div class="gal" id="gal"></div>
@@ -60,10 +61,12 @@
 
 <section class="book" id="book"><div class="wrap grid">
  <div class="rev"><div class="eyebrow" data-i18n="n_book">Book</div><h2 data-i18n="b_title">Book an Appointment</h2><p class="lead" data-i18n="b_lead">Send your request and the clinic will confirm the time with you. A request is not a confirmed appointment.</p>
-  <ul class="info"><li id="b_hours"></li><li data-i18n="b_wa_note">Prefer WhatsApp? Use the button after sending, or the green button anywhere on this page.</li><li data-i18n="b_priv">Please do not write medical history here. Share details directly with the doctor.</li></ul></div>
+  <ol class="booking-steps"><li data-i18n="step1">Request received</li><li data-i18n="step2">Doctor confirms</li><li data-i18n="step3">Doctor contacts patient</li></ol><ul class="info"><li id="b_hours"></li><li data-i18n="b_wa_note">Prefer WhatsApp? Use the button after sending, or the green button anywhere on this page.</li><li data-i18n="b_priv">Please do not write medical history here. Share details directly with the doctor.</li></ul></div>
  <form class="f rev" id="bform" novalidate>
   <label><span data-i18n="f_name">Patient name</span><input name="name" required maxlength="80" autocomplete="name"></label>
   <label><span data-i18n="f_phone">Phone number</span><input name="phone" required inputmode="tel" maxlength="20" autocomplete="tel" placeholder="01XXXXXXXXX"></label>
+  <label class="full"><span data-i18n="f_kind">Request type</span><select name="kind" id="f_kind"><option value="routine" data-i18n="kind_routine">Routine examination, 30 minutes</option><option value="emergency" data-i18n="kind_emergency">Emergency request, time arranged by doctor</option></select></label>
+  <p id="kind-note" class="full small-note"></p>
   <label class="full"><span data-i18n="f_service">Requested service</span><select name="service" id="f_service" required></select></label>
   <label><span data-i18n="f_date">Preferred date</span><input type="date" name="day" id="f_day" required></label>
   <label><span data-i18n="f_time">Preferred time</span><select name="time" id="f_time" required></select></label>
@@ -80,5 +83,5 @@
 <footer><div class="wrap"><span>&copy; <span id="yr"></span> <span data-i18n="brand">Dr Youssef Elgohary</span></span><span><span data-i18n="foot">Dental care in Zagazig, Egypt.</span> &middot; <a href="admin.html">Admin</a></span></div></footer>
 <a class="wa" id="wa" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3a13 13 0 0 0-11 19.8L3 29l6.4-2A13 13 0 1 0 16 3zm0 2.4a10.6 10.6 0 1 1-5.4 19.7l-.4-.2-3.7 1.2 1.2-3.6-.3-.4A10.6 10.6 0 0 1 16 5.4zm-4 5.2c-.3 0-.7.1-1 .5-.4.4-1.300 1.300-1.300 3.100s1.300 3.600 1.500 3.800c.2.300 2.600 4.200 6.400 5.700 3.100 1.200 3.700 1 4.400.9.700-.1 2.200-.9 2.500-1.800.3-.9.300-1.600.2-1.800l-.6-.4-2.300-1.100c-.3-.1-.6-.2-.8.200l-1 1.200c-.2.200-.4.300-.7.100a8.700 8.700 0 0 1-4.300-3.800c-.3-.5.300-.5.800-1.600.1-.2 0-.4 0-.6l-1-2.400c-.3-.6-.5-.5-.8-.5z"/></svg></a>
 <div class="ov" id="ov"><div class="bar2"><div class="wrap"><button id="ovx" data-i18n="back">Back to cases</button></div></div><div class="wrap cd" id="cd"></div></div>
-<script src="config.js"></script><script src="script.js"></script>
+<script src="config.js?v=20261121b"></script><script src="care.js"></script><script src="script-v2.js?v=20261121b"></script>
 </body></html>
