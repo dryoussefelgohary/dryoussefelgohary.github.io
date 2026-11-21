@@ -1,0 +1,15 @@
+/* Original educational SVG drawings. Text is editable in Website settings. */
+window.renderCare=function(lang,settings){
+ const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const tooth='<path d="M75 37c-17-12-34 0-27 24l9 34c5 15 11 1 14-13 2-7 6-7 8 0 3 14 9 28 14 13l9-34c7-24-10-36-27-24z" fill="#fff" stroke="#0b1f3a" stroke-width="3"/>';
+ const drawings=[
+ '<circle cx="110" cy="70" r="49" fill="#fff" stroke="#c8a96a" stroke-width="3"/><path d="M110 36v34l23 15" fill="none" stroke="#0b1f3a" stroke-width="5" stroke-linecap="round"/><circle cx="110" cy="70" r="5" fill="#c8a96a"/><path d="M106 12h8M106 128h8M53 66v8M167 66v8" stroke="#c8a96a" stroke-width="3"/>',
+ tooth+'<g transform="rotate(-45 127 72)"><rect x="95" y="59" width="95" height="15" rx="7" fill="#0b1f3a"/><path d="M97 58v-14m7 14v-14m7 14v-14m7 14v-14m7 14v-14" stroke="#c8a96a" stroke-width="4"/></g><path d="M110 105h34a34 34 0 0 0-10-24" fill="none" stroke="#c8a96a" stroke-width="2"/>',
+ tooth+'<g transform="translate(70 0)">'+tooth+'</g><path d="M107 25c-16 9-17 26-16 44 0 17 5 28 17 28" stroke="#c8a96a" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M116 40v44m-5-38 5-7 5 7m-10 31 5 8 5-8" fill="none" stroke="#0b1f3a" stroke-width="2"/>',
+ '<path d="M70 30h80l-10 82H80z" fill="#fff" stroke="#0b1f3a" stroke-width="3"/><path d="M75 52h70v39H79z" fill="#0b1f3a"/><text x="110" y="78" text-anchor="middle" fill="#e2cb97" font-family="sans-serif" font-size="24">F</text><rect x="84" y="113" width="52" height="12" rx="3" fill="#c8a96a"/><path d="M84 24c15-12 36-12 51 0" stroke="#c8a96a" stroke-width="4" fill="none"/>',
+ '<rect x="34" y="77" width="61" height="13" rx="6" fill="#0b1f3a"/><path d="M40 75h37" stroke="#c8a96a" stroke-width="5" stroke-linecap="round"/><rect x="126" y="77" width="61" height="13" rx="6" fill="#0b1f3a"/><circle cx="149" cy="69" r="9" fill="#c8a96a"/><text x="64" y="47" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#0b1f3a">&lt;3</text><text x="156" y="47" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#0b1f3a">3–6</text>',
+ '<path d="M47 43h37l-5 62H52z" fill="#fff" stroke="#0b1f3a" stroke-width="3"/><path d="M55 56h24" stroke="#c8a96a" stroke-width="4"/><path d="M66 43l10-24h16" fill="none" stroke="#0b1f3a" stroke-width="3"/><path d="M126 64c-12-14-29-3-25 16 8 37 26 29 33 24 8 5 26 13 34-24 4-19-14-30-26-16z" fill="#fff" stroke="#0b1f3a" stroke-width="3"/><path d="M134 65c-3-18 6-26 18-27-1 15-8 24-18 27z" fill="#c8a96a"/>'
+ ];
+ const text=settings['care_'+lang]||DEFAULT_SITE['care_'+lang];
+ document.querySelector('#care-list').innerHTML=text.split('\n').filter(Boolean).map((line,i)=>{const [title,...parts]=line.split('|');return '<article class="care-card"><div class="care-diagram"><svg viewBox="0 0 220 140" role="img" aria-label="'+esc(title)+'">'+drawings[i%drawings.length]+'</svg></div><div class="care-copy"><h3>'+esc(title)+'</h3><p>'+esc(parts.join('|'))+'</p></div></article>'}).join('');
+};
