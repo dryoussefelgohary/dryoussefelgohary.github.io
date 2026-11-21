@@ -142,3 +142,7 @@ section{scroll-margin-top:76px}.care{background:#fff}.care-grid{display:grid;gri
 .hp{position:fixed!important;left:0!important;top:0!important;width:1px!important;height:1px!important;padding:0!important;border:0!important;opacity:0;clip-path:inset(50%);pointer-events:none}
 
 .ct a{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.hero .tagline{color:var(--gold2);font-size:.92rem;font-weight:600;margin:-10px 0 18px;letter-spacing:.02em}
+.hero .facts{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:22px;color:rgba(255,255,255,.72);font-size:.86rem}
+.hero .facts span{display:inline-flex;align-items:center;gap:7px}
+.hero .facts span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);flex:none}
