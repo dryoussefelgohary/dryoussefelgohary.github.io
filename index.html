@@ -22,6 +22,8 @@
     <a href="#about" data-ar="نبذة" data-en="About">نبذة</a>
     <a href="#skills" data-ar="المهارات" data-en="Skills">المهارات</a>
     <a href="#cases" data-ar="الحالات" data-en="Cases">الحالات</a>
+    <a href="#prices" data-ar="الأسعار" data-en="Prices">الأسعار</a>
+    <a href="#booking" data-ar="احجز" data-en="Book">احجز</a>
     <a href="#contact" data-ar="تواصل" data-en="Contact">تواصل</a>
   </nav>
   <button class="lang" id="lang" aria-label="Switch language">EN</button>
@@ -90,6 +92,40 @@
     <p class="sub" data-ar="اختر التخصص لمشاهدة الحالات. تُنشر الصور بعد موافقة المريض وبدون أي بيانات تعريفية." data-en="Choose a specialty to view cases. Images are shared with patient consent and without identifying details.">اختر التخصص لمشاهدة الحالات. تُنشر الصور بعد موافقة المريض وبدون أي بيانات تعريفية.</p>
     <div class="tabs" id="tabs" role="tablist"></div>
     <div id="panel" class="panel"></div>
+  </div>
+</section>
+
+<section id="prices" class="sec alt">
+  <div class="wrap">
+    <p class="kicker" data-ar="الأسعار" data-en="Prices">الأسعار</p>
+    <h2 data-ar="أسعار الخدمات" data-en="Service prices">أسعار الخدمات</h2>
+    <p class="sub" data-ar="أسعار واضحة ومعلنة قبل بدء أي علاج. الأسعار النهائية تُحدَّد بعد الكشف حسب كل حالة." data-en="Clear prices shared before any treatment starts. Final pricing is confirmed after examination, case by case.">أسعار واضحة ومعلنة قبل بدء أي علاج. الأسعار النهائية تُحدَّد بعد الكشف حسب كل حالة.</p>
+    <div class="price-grid" id="priceGrid"></div>
+  </div>
+</section>
+
+<section id="booking" class="sec booking">
+  <div class="wrap book-grid">
+    <div>
+      <p class="kicker" data-ar="حجز موعد" data-en="Book a visit">حجز موعد</p>
+      <h2 data-ar="احجز تذكرة كشف في العيادة" data-en="Book a clinic appointment">احجز تذكرة كشف في العيادة</h2>
+      <p class="sub" data-ar="اكتب بياناتك واختر الخدمة، وسيصلني الطلب على واتساب أو البريد، وأرد عليك لتأكيد الموعد." data-en="Enter your details and pick a service. Your request reaches me on WhatsApp or email and I will reply to confirm the time.">اكتب بياناتك واختر الخدمة، وسيصلني الطلب على واتساب أو البريد، وأرد عليك لتأكيد الموعد.</p>
+      <ul class="steps">
+        <li><b>1</b><span data-ar="أرسل طلبك" data-en="Send your request">أرسل طلبك</span></li>
+        <li><b>2</b><span data-ar="نؤكد الموعد معك" data-en="We confirm your time">نؤكد الموعد معك</span></li>
+        <li><b>3</b><span data-ar="تأتي إلى العيادة" data-en="You visit the clinic">تأتي إلى العيادة</span></li>
+      </ul>
+      <div class="clinic" id="clinicInfo"></div>
+    </div>
+    <form class="book-card" id="bookForm" autocomplete="off">
+      <label><span data-ar="الاسم" data-en="Name">الاسم</span><input id="bName" required></label>
+      <label><span data-ar="رقم الموبايل" data-en="Mobile">رقم الموبايل</span><input id="bPhone" inputmode="tel" dir="ltr" required></label>
+      <label><span data-ar="الخدمة" data-en="Service">الخدمة</span><select id="bSvc"></select></label>
+      <label><span data-ar="اليوم المفضل" data-en="Preferred day">اليوم المفضل</span><input id="bDay" type="date"></label>
+      <label><span data-ar="ملاحظات (اختياري)" data-en="Notes (optional)">ملاحظات (اختياري)</span><textarea id="bNote" rows="2"></textarea></label>
+      <button class="btn primary" type="submit" data-ar="أرسل طلب الحجز" data-en="Send booking request">أرسل طلب الحجز</button>
+      <small class="fine" data-ar="لن تُحفظ بياناتك على الموقع. تُرسل مباشرة إلى واتساب أو البريد." data-en="Your details are not stored on this site. They go straight to WhatsApp or email.">لن تُحفظ بياناتك على الموقع. تُرسل مباشرة إلى واتساب أو البريد.</small>
+    </form>
   </div>
 </section>
 
