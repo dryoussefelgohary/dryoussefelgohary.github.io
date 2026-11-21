@@ -82,7 +82,7 @@ function renderContact(){
  const loc=[L(S,"city"),L(S,"address")].filter(Boolean).join("\n");
  o.push(["k_loc",esc(loc)+(S.map_url?'\n<a href="'+esc(S.map_url)+'" target="_blank" rel="noopener">'+esc(t("k_map"))+'</a>':"")]);
  o.push(["k_hours",esc(L(S,"hours"))]);
- const soc=[["Instagram",S.instagram],["Facebook",S.facebook],["LinkedIn",S.linkedin]].filter(x=>/^https?:\/\//.test(x[1]||""));
+ const soc=[["Instagram",S.instagram],["Facebook",S.facebook],["TikTok",S.tiktok],["LinkedIn",S.linkedin]].filter(x=>/^https?:\/\//.test(x[1]||""));
  if(soc.length)o.push(["k_soc",soc.map(x=>'<a href="'+esc(x[1])+'" target="_blank" rel="noopener">'+x[0]+'</a>').join(" &middot; ")]);
  $("#ct").innerHTML=o.map(x=>'<div class="ct"><h3>'+esc(t(x[0]))+'</h3><p>'+x[1]+'</p></div>').join("");
 }
