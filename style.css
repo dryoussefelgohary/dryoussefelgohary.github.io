@@ -96,3 +96,31 @@ body.en h1,body.en h2{font-family:"Fraunces",Georgia,serif;font-weight:600}
  .b1{top:0}.b2{bottom:0}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+.progress{position:fixed;top:0;inset-inline-start:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold));z-index:100;width:0}
+.hero-text>*{animation:up .9s both}.hero-text>*:nth-child(2){animation-delay:.1s}.hero-text>*:nth-child(3){animation-delay:.2s}.hero-text>*:nth-child(4){animation-delay:.3s}.hero-text>*:nth-child(5){animation-delay:.4s}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.btn.primary{background-size:200% 100%;position:relative;overflow:hidden}
+.btn.primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);animation:shine 4s infinite 1.5s}
+@keyframes shine{to{transform:translateX(120%)}}
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:10px}
+.pcard{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:24px;transition:.3s}
+.pcard:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(11,42,61,.1);border-color:var(--mint);background:#fff}
+.pcard h3{font-size:17px;color:var(--teal);margin-bottom:12px}
+.pcard ul{list-style:none;display:grid;gap:2px}
+.pcard li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.pcard li:last-child{border:0}.pcard b{white-space:nowrap;color:var(--ink)}.pcard b.soon{color:#9bb0ba;font-weight:600;background:#eef4f6;border-radius:999px;padding:0 12px;font-size:13px;line-height:26px}
+.booking{background:linear-gradient(160deg,#eaf6f4,#f6f9fa 60%)}
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.steps{list-style:none;display:grid;gap:12px;margin:8px 0 22px}
+.steps li{display:flex;align-items:center;gap:14px;font-weight:700;color:var(--ink)}
+.steps b{width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--mint);display:grid;place-items:center;font-family:"Fraunces","Cairo",serif}
+.clinic{display:grid;gap:10px}.clinic>div{display:flex;gap:10px;color:var(--mut)}.clinic i{font-style:normal}
+.clinic a{color:var(--teal);font-weight:700}.soon-note{background:#fff;border:1px dashed #b9d0da;border-radius:14px;padding:12px 16px;color:var(--mut)}
+.book-card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:28px;box-shadow:0 24px 60px rgba(11,42,61,.1);display:grid;gap:14px}
+.book-card label{display:grid;gap:6px;font-weight:700;font-size:14px;color:var(--ink)}
+.book-card input,.book-card select,.book-card textarea{font:inherit;font-weight:400;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--tx);transition:.2s;width:100%}
+.book-card input:focus,.book-card select:focus,.book-card textarea:focus{outline:0;border-color:var(--teal);box-shadow:0 0 0 4px rgba(43,179,163,.15);background:#fff}
+.book-card .btn{border:0;cursor:pointer;font-family:inherit}
+.fine{color:var(--mut);font-size:12.5px;text-align:center}
+@media(max-width:860px){.book-grid{grid-template-columns:1fr;gap:26px}.book-card{padding:20px}}
