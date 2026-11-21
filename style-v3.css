@@ -152,3 +152,29 @@ section{scroll-margin-top:76px}.care{background:#fff}.care-grid{display:grid;gri
 .cred{list-style:none;padding:0;margin:16px 0 4px;display:flex;flex-direction:column;gap:9px}
 .cred li{position:relative;padding-inline-start:22px;color:var(--mut);font-size:.95rem}
 .cred li:before{content:"";position:absolute;inset-inline-start:0;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+
+/* fix8: service card photos + service details modal */
+.sph{width:calc(100% + 56px);max-width:none;margin:-28px -28px 4px;aspect-ratio:3/2;object-fit:cover;border-radius:var(--r) var(--r) 0 0;display:block}
+.svcm{position:fixed;inset:0;background:rgba(4,12,26,.8);backdrop-filter:blur(4px);display:grid;place-items:center;padding:18px;z-index:120;overflow-y:auto}
+.svcm[hidden]{display:none}
+.svcm-box{position:relative;background:var(--navy2);border:1px solid rgba(200,169,106,.4);border-radius:var(--r);max-width:620px;width:100%;max-height:88vh;overflow-y:auto;padding:0 26px 26px;color:#fff}
+.svcm-box>img{width:calc(100% + 52px);max-width:none;margin:0 -26px 18px;aspect-ratio:21/9;object-fit:cover;border-radius:var(--r) var(--r) 0 0;display:block}
+.svcm-box h3{font-size:1.35rem;margin:0 0 4px}
+.svcm-x{position:absolute;top:12px;inset-inline-end:12px;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(11,31,58,.85);color:#fff;font-size:20px;line-height:1;cursor:pointer;z-index:2}
+.svcm-sec{margin-top:16px}
+.svcm-sec h4{color:var(--gold);font-size:.95rem;margin:0 0 6px}
+.svcm-sec p{margin:0;color:rgba(255,255,255,.78);font-size:.92rem}
+.svcm-procs{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+.svcm-procs a{border:1px solid rgba(200,169,106,.45);border-radius:999px;padding:6px 14px;color:var(--gold2);text-decoration:none;font-size:.82rem}
+.svcm-procs a:hover{background:rgba(200,169,106,.12)}
+@media (max-width:640px){
+.svc{grid-template-columns:1fr 1fr;gap:12px}
+.s{padding:16px}
+.sph{width:calc(100% + 32px);margin:-16px -16px 4px}
+.s h3{font-size:1.05rem}
+.s p{font-size:.85rem}
+.s .procedures{display:none}
+.s .row .btn{padding:8px 14px;font-size:.78rem}
+.svcm-box{padding:0 18px 18px}
+.svcm-box>img{width:calc(100% + 36px);margin:0 -18px 14px}
+}
