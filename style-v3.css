@@ -184,3 +184,12 @@ section{scroll-margin-top:76px}.care{background:#fff}.care-grid{display:grid;gri
 .s .btn-line:hover,.s .btn-line:focus-visible{background:#f1d49b;color:#0b1f3a}
 .svcm-sources{font-size:.78rem;color:#d5dfeb;line-height:1.65;border-top:1px solid #ffffff25;padding-top:14px;margin-top:20px}
 .svcm-sources a{color:#f1d49b;text-decoration:underline;text-underline-offset:3px}
+
+/* Clinical photos remain uncropped, with neutral dark framing. */
+.card .im{background:#10223d;direction:ltr;align-items:center}
+.card .im img{object-fit:contain;min-width:0;min-height:0;max-height:100%}
+.cmp{background:#10223d;direction:ltr}
+.cmp img{object-fit:contain}
+.gal>div{min-width:0}
+.gcap{position:static;text-align:center;padding:2px 8px}
+.cd .cmp{max-width:720px;margin-inline:auto;max-height:75vh}
