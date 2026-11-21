@@ -146,3 +146,9 @@ section{scroll-margin-top:76px}.care{background:#fff}.care-grid{display:grid;gri
 .hero .facts{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:22px;color:rgba(255,255,255,.72);font-size:.86rem}
 .hero .facts span{display:inline-flex;align-items:center;gap:7px}
 .hero .facts span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);flex:none}
+
+/* fix7: About portrait + credential bullets */
+.bphoto{width:100%;max-width:320px;height:auto;border-radius:var(--r);margin:20px 0 8px;display:block;border:1px solid rgba(200,169,106,.45);box-shadow:var(--sh)}
+.cred{list-style:none;padding:0;margin:16px 0 4px;display:flex;flex-direction:column;gap:9px}
+.cred li{position:relative;padding-inline-start:22px;color:var(--mut);font-size:.95rem}
+.cred li:before{content:"";position:absolute;inset-inline-start:0;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--gold)}
