@@ -29,7 +29,9 @@ window.addEventListener("load", function(){
   b.textContent = "Enable phone notifications / تفعيل إشعارات الموبايل";
   b.onclick = function(){ enable(b); };
   host.insertBefore(b, host.firstChild);
-  if("serviceWorker" in navigator){
+  if("Notification" in window && Notification.permission === "denied"){
+    b.textContent = "Notifications blocked in browser settings / الإشعارات محظورة من إعدادات المتصفح";
+  } else if("serviceWorker" in navigator){
     navigator.serviceWorker.register("/sw.js").then(async function(reg){
       var sub = await reg.pushManager.getSubscription();
       if(sub) b.textContent = "Phone notifications on / الإشعارات مفعّلة ✓";
