@@ -3,7 +3,7 @@
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 const T={en:{brand:"Dr Youssef Elgohary",n_about:"About",n_cases:"Cases",n_services:"Services",n_gallery:"Smile Gallery",n_book:"Book",n_contact:"Contact",
-h_sub:"Modern dentistry with a personalized approach to every smile.",h_book:"Book an Appointment",h_cases:"Explore My Cases",chip1:"Dentist",chip1s:"Personalized & patient-centered care",chip2:"Zagazig, Sharqia",chip2s:"Sat to Thu, 5 to 10 PM",
+h_sub:"Modern dental care focused on comfort, precision, and personalized treatment for every patient.",h_book:"Book Your Appointment",h_cases:"Explore My Cases",h_serv:"Explore Dental Services",h_tag:"Dentist | Restoring Healthy & Confident Smiles",f1:"Zagazig, Egypt",f2:"Personalized Dental Care",f3:"Available for Appointments",chip1:"Dentist",chip1s:"Personalized & patient-centered care",chip2:"Zagazig, Sharqia",chip2s:"Sat to Thu, 5 to 10 PM",
 a_title:"Dr Youssef Elgohary",a_tag:"Dentist | Personalized & Patient-Centered Dental Care",a_edu:"Education and experience",a_int:["Oral surgery","Endodontics","Pediatric dentistry","Cosmetic restorations","Veneers"],
 c_title:"My Dental Cases",c_lead:"Clinical cases with before and after photos, published with patient consent.",c_all:"All",c_empty:"Cases will appear here soon. Each case is published only with the patient's consent.",
 cat:{restorative:"Restorative Dentistry",endo:"Endodontics",esthetic:"Esthetic Dentistry",prostho:"Prosthodontics",surgery:"Oral Surgery",general:"General Dentistry",pedo:"Pediatric Dentistry",ortho:"Orthodontics",perio:"Periodontics"},
@@ -16,7 +16,7 @@ ok:"Thank you. Your request was received. The clinic will contact you to confirm
 k_title:"Contact",k_wa:"WhatsApp",k_phone:"Phone",k_email:"Email",k_loc:"Location",k_hours:"Working hours",k_map:"Open map",k_soc:"Social",
 back:"Back to cases",cd_desc:"Case description",cd_diag:"Diagnosis",cd_plan:"Treatment plan",cd_steps:"Treatment details",cd_res:"Result",foot:"Dental care in Zagazig, Egypt.",wa_msg:"Hello Dr Youssef, I would like to book an appointment."},
 ar:{brand:"د. يوسف الجوهري",n_about:"نبذة",n_cases:"الحالات",n_services:"الخدمات",n_gallery:"معرض الابتسامات",n_book:"احجز",n_contact:"تواصل",
-h_sub:"طب أسنان حديث بأسلوب شخصي مع كل ابتسامة.",h_book:"احجز موعدًا",h_cases:"استكشف حالاتي",chip1:"طبيب أسنان",chip1s:"رعاية شخصية تضع المريض أولًا",chip2:"الزقازيق، الشرقية",chip2s:"من السبت للخميس، ٥ إلى ١٠ م",
+h_sub:"رعاية أسنان حديثة تركّز على الراحة والدقة وعلاج مخصص لكل مريض.",h_book:"احجز موعدك",h_cases:"استكشف حالاتي",h_serv:"استكشف خدماتي",h_tag:"طبيب أسنان | لاستعادة ابتسامات صحية وواثقة",f1:"الزقازيق، مصر",f2:"رعاية أسنان شخصية",f3:"متاح للحجز",chip1:"طبيب أسنان",chip1s:"رعاية شخصية تضع المريض أولًا",chip2:"الزقازيق، الشرقية",chip2s:"من السبت للخميس، ٥ إلى ١٠ م",
 a_title:"د. يوسف الجوهري",a_tag:"طبيب أسنان | رعاية أسنان شخصية تضع المريض أولًا",a_edu:"التعليم والخبرة",a_int:["جراحة الفم","علاج الجذور","أسنان الأطفال","الحشوات التجميلية","الفينير"],
 c_title:"حالاتي السنية",c_lead:"حالات سريرية بصور قبل وبعد، تُنشر بموافقة المريض.",c_all:"الكل",c_empty:"ستظهر الحالات هنا قريبًا. لا تُنشر أي حالة إلا بموافقة المريض.",
 cat:{restorative:"طب الأسنان الترميمي",endo:"علاج الجذور",esthetic:"طب الأسنان التجميلي",prostho:"التركيبات السنية",surgery:"جراحة الفم",general:"طب الأسنان العام",pedo:"أسنان الأطفال",ortho:"التقويم",perio:"أمراض اللثة"},
@@ -46,7 +46,7 @@ function render(){
  $("#bio").innerHTML=paras(L(S,"bio"));
  /* Default portrait ships inline as a data URI so it arrives with the page even on very slow connections; hero-small.jpg is the file fallback; only override when the saved setting points at a different image. */
  if(S.portrait_url&&S.portrait_url!=="mwqph5lgziqjh.jpg")$(".frame img").src=SB.photoUrl(S.portrait_url);
- {const hi=$(".frame img");hi.onerror=function(){this.onerror=null;if(!this.src.endsWith("hero-small.jpg"))this.src="hero-small.jpg";else this.src="https://wslxnsfhjluzxdtzsxnz.supabase.co/storage/v1/object/public/case-photos/mwqph5lgziqjh.jpg"};}
+ {const hi=$(".frame img");hi.onerror=function(){this.onerror=null;if(!this.src.endsWith("hero-small.jpg"))this.src="hero-small.jpg";else this.src="portrait.jpg"};}
  $("#int").innerHTML=T[lang].a_int.map(x=>"<span>"+esc(x)+"</span>").join("");
  $("#tl").innerHTML=L(S,"timeline").split("\n").filter(Boolean).map(l=>{const p=l.split("|");return "<div><b>"+esc((p[0]||"").trim())+"</b><span>"+esc((p[1]||"").trim())+"</span></div>"}).join("");
  const co=L(S,"courses").trim();$("#courses").innerHTML=co?"<div class='eyebrow'>"+(lang==="ar"?"الدورات والتطوير المهني":"Courses and development")+"</div><div class='tl'>"+co.split("\n").filter(Boolean).map(l=>"<div><b>"+esc(l)+"</b></div>").join("")+"</div>":"";
