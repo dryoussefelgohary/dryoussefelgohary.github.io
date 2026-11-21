@@ -65,15 +65,124 @@ function renderCases(){
 }
 const SVC_HEADS=[{k:"what",en:"What is this procedure?",ar:"يعني إيه الإجراء ده؟"},{k:"when",en:"When might you need it?",ar:"إمتى ممكن تحتاجه؟"},{k:"how",en:"How is it done?",ar:"بيتعمل إزاي؟"},{k:"pain",en:"Is it painful?",ar:"هل الإجراء مؤلم؟"},{k:"sessions",en:"Expected sessions",ar:"عدد الجلسات المتوقع"},{k:"after",en:"Aftercare instructions",ar:"تعليمات بعد العلاج"}];
 const SVC_DETAILS={
-"Preventive Dentistry":{img:"https://images.pexels.com/photos/3845942/pexels-photo-3845942.jpeg?auto=compress&cs=tinysrgb&w=640",en:{"what": "Regular check-ups, professional cleaning (scaling and polishing) and guidance to keep teeth and gums healthy and catch problems early.", "when": "As a routine about every six months, or when you notice bleeding gums, bad breath, or plaque and stain buildup.", "how": "After examination, plaque and calculus are removed with ultrasonic and hand instruments, followed by polishing and home-care advice suited to your case.", "pain": "Usually comfortable; mild sensitivity can happen with heavy buildup or inflamed gums and settles quickly.", "sessions": "Usually one visit; follow-up depends on gum condition.", "after": "Mild sensitivity or gum tenderness for a day or two is possible; keep brushing twice daily and use any recommended rinse."},ar:{"what": "فحوصات دورية وتنظيف احترافي (إزالة الجير والتلميع) وإرشادات للحفاظ على صحة الأسنان واللثة واكتشاف أي مشكلة مبكرًا.", "when": "كروتين كل ستة شهور تقريبًا، أو عند ملاحظة نزيف باللثة أو رائحة فم أو تراكم جير وتصبغات.", "how": "بعد الفحص تُزال الترسبات والجير بأدوات الموجات فوق الصوتية واليدوية، ثم التلميع ونصائح عناية منزلية مناسبة لحالتك.", "pain": "غالبًا مريح؛ قد يحدث تحسس بسيط مع تراكم شديد أو التهاب باللثة ويزول سريعًا.", "sessions": "غالبًا جلسة واحدة، والمتابعة حسب حالة اللثة.", "after": "قد يوجد تحسس بسيط ليوم أو يومين؛ حافظ على تنظيف الأسنان مرتين يوميًا واستخدم الغسول إن وُصف."}},
-"Restorative Dentistry":{img:"https://images.pexels.com/photos/13264624/pexels-photo-13264624.jpeg?auto=compress&cs=tinysrgb&w=640",en:{"what": "Fillings and restorations that repair decayed or damaged teeth and restore their shape and function.", "when": "When there is decay, a chipped or broken tooth, an old failing filling, or sensitivity to sweets and cold drinks.", "how": "The decayed part is removed and the cavity cleaned, then a tooth-colored composite restoration is placed, shaped and polished to match your bite.", "pain": "Done with local anesthesia when needed, so the visit is usually comfortable.", "sessions": "Most fillings finish in one visit; larger damage may need more.", "after": "Numbness fades within hours; avoid chewing on that side until it does, and tell us if the filling feels high."},ar:{"what": "حشوات وترميمات لإصلاح الأسنان المصابة بالتسوس أو التلف واستعادة شكلها ووظيفتها.", "when": "عند وجود تسوس أو كسر بالسن أو حشوة قديمة تالفة أو حساسية للحلويات والمشروبات الباردة.", "how": "يُزال الجزء المتسوس ويُنظف التجويف، ثم يوضع حشو تجميلي بلون السن ويُشكل ويُلمع ليناسب الإطباق.", "pain": "يتم بالتخدير الموضعي عند الحاجة، فتكون الزيارة مريحة غالبًا.", "sessions": "معظم الحشوات تنتهي في جلسة واحدة، والتلف الأكبر قد يحتاج أكثر.", "after": "يزول التنميل خلال ساعات؛ تجنب المضغ على تلك الجهة حتى يزول، وأخبرنا إذا شعرت أن الحشو مرتفع."}},
-"Endodontics":{img:"https://images.pexels.com/photos/5355837/pexels-photo-5355837.jpeg?auto=compress&cs=tinysrgb&w=640",en:{"what": "Root canal treatment removes infected or inflamed pulp from inside the tooth, then seals the canals to relieve pain and save the natural tooth when possible.", "when": "Deep decay reaching the nerve, severe or night pain, long-lasting sensitivity to hot or cold, or an abscess.", "how": "Under local anesthesia the canals are cleaned, disinfected and filled; the tooth is then restored and often needs a crown afterward.", "pain": "The procedure itself is done under anesthesia; soreness for a few days afterward is common and manageable.", "sessions": "Often two to three visits depending on the tooth and the infection.", "after": "Avoid chewing on the tooth until its final restoration, and take any prescribed medication as directed."},ar:{"what": "علاج العصب يزيل لب السن المصاب أو الملتهب ثم يحكم إغلاق القنوات لتخفيف الألم والحفاظ على السن الطبيعي متى أمكن.", "when": "التسوس العميق الواصل للعصب، أو الألم الشديد أو الليلي، أو حساسية طويلة للساخن والبارد، أو وجود خراج.", "how": "تحت التخدير الموضعي تُنظف القنوات وتُطهر وتُحشى، ثم يُرمم السن وغالبًا يحتاج تاجًا بعد ذلك.", "pain": "الإجراء نفسه يتم تحت التخدير؛ وألم بسيط لأيام قليلة بعده أمر شائع ويمكن التعامل معه.", "sessions": "غالبًا من جلستين إلى ثلاث حسب السن وحالة العدوى.", "after": "تجنب المضغ على السن حتى استكمال ترميمه النهائي، والتزم بأي دواء موصوف."}},
-"Cosmetic Dentistry":{img:"https://images.pexels.com/photos/6627572/pexels-photo-6627572.jpeg?auto=compress&cs=tinysrgb&w=640",en:{"what": "Whitening, bonding, veneers and smile design to improve the look of teeth while respecting their natural character.", "when": "Stains, small gaps, uneven edges, or discolored and slightly misshapen front teeth.", "how": "After assessment and planning, treatment ranges from whitening sessions to bonding or custom-made veneers, chosen to fit your case.", "pain": "Most esthetic procedures are comfortable and need little or no anesthesia.", "sessions": "Varies by plan: whitening may take one or two visits; veneers usually two or more.", "after": "Temporary sensitivity after whitening is common; limit staining foods and drinks and keep regular cleaning."},ar:{"what": "تبييض وحشوات تجميلية أمامية وقشور (فينير) وتصميم ابتسامة لتحسين مظهر الأسنان مع الحفاظ على طبيعتها.", "when": "التصبغات أو الفراغات الصغيرة أو الحواف غير المتساوية أو تغير لون الأسنان الأمامية.", "how": "بعد الفحص والتخطيط يتراوح العلاج بين جلسات التبييض والحشوات التجميلية أو القشور المصنوعة خصيصًا، بما يناسب حالتك.", "pain": "معظم إجراءات التجميل مريحة وتحتاج تخديرًا بسيطًا أو لا تحتاج.", "sessions": "تختلف حسب الخطة: التبييض جلسة أو جلستان، والفينير غالبًا جلستان أو أكثر.", "after": "تحسس مؤقت بعد التبييض أمر شائع؛ قلل الأطعمة والمشروبات المصبغة وحافظ على التنظيف الدوري."}},
-"Prosthodontics":{img:"https://images.pexels.com/photos/6627600/pexels-photo-6627600.jpeg?auto=compress&cs=tinysrgb&w=640",en:{"what": "Crowns, bridges and dentures that rebuild damaged teeth or replace missing ones to restore chewing and appearance.", "when": "Heavily broken or root-treated teeth, missing teeth, or old failing replacements.", "how": "The tooth is prepared, precise impressions or scans are taken, and a custom restoration is fabricated, tried in and fixed over visits.", "pain": "Preparation is done with local anesthesia when needed; mild gum tenderness afterward is common.", "sessions": "Usually two to three visits; dentures may need extra visits for adjustments.", "after": "Avoid very hard or sticky food at first, clean around the restoration daily, and come back if the bite feels off."},ar:{"what": "تيجان وجسور وأطقم لإعادة بناء الأسنان التالفة أو تعويض المفقودة لاستعادة المضغ والمظهر.", "when": "الأسنان شديدة التكسر أو المعالجة عصبيًا، أو الأسنان المفقودة، أو التركيبات القديمة التالفة.", "how": "يُجهز السن وتُؤخذ طبعات أو مسح دقيق، وتُصنع التركيبة خصيصًا ثم تُجرب وتُثبت على جلسات.", "pain": "التجهيز يتم بالتخدير الموضعي عند الحاجة؛ وألم بسيط باللثة بعده أمر شائع.", "sessions": "غالبًا جلستان إلى ثلاث؛ والأطقم قد تحتاج جلسات إضافية للتعديل.", "after": "تجنب الأكل شديد الصلابة أو اللزوجة أولًا، ونظف حول التركيبة يوميًا، وراجعنا إذا شعرت بخلل في الإطباق."}},
-"Oral Surgery":{img:"https://images.pexels.com/photos/3845941/pexels-photo-3845941.jpeg?auto=compress&cs=tinysrgb&w=640",en:{"what": "Simple and surgical extractions, wisdom tooth removal and minor surgical procedures inside the mouth, according to case assessment.", "when": "Teeth that cannot be restored, problematic wisdom teeth, retained roots, or as part of a wider treatment plan.", "how": "After examination and any needed X-ray, the area is numbed and the procedure is performed with sterile technique, with stitches when needed.", "pain": "The procedure is done under local anesthesia; soreness and swelling for a few days afterward are expected and managed with medication and instructions.", "sessions": "Usually one visit, plus a review or stitch removal if needed.", "after": "Bite on gauze as instructed, avoid smoking and straws in the first days, choose soft cold food, and keep the area gently clean."},ar:{"what": "الخلع العادي والجراحي وخلع ضرس العقل والإجراءات الجراحية البسيطة داخل الفم، حسب تقييم الحالة.", "when": "الأسنان غير القابلة للإصلاح، أو ضروس العقل المسببة لمشاكل، أو الجذور المتبقية، أو كجزء من خطة علاج أوسع.", "how": "بعد الفحص وأي أشعة لازمة يُخدر المكان ويُجرى الإجراء بتقنية معقمة، مع غرز عند الحاجة.", "pain": "الإجراء يتم تحت التخدير الموضعي؛ وألم وتورم لأيام قليلة بعده متوقع ويُدار بالأدوية والتعليمات.", "sessions": "غالبًا جلسة واحدة، مع مراجعة أو إزالة غرز عند الحاجة.", "after": "اضغط على الشاش كما يُوصى، وتجنب التدخين والشفاطات في الأيام الأولى، وتناول طعامًا لينًا باردًا، ونظف المنطقة برفق."}},
+ "Preventive Dentistry": {
+  "img": "https://images.pexels.com/photos/3845942/pexels-photo-3845942.jpeg?auto=compress&cs=tinysrgb&w=640",
+  "en": {
+   "what": "Regular check-ups, professional cleaning (scaling and polishing) and guidance to keep teeth and gums healthy and catch problems early.",
+   "when": "Regular reviews are scheduled according to your oral health and risk, not a fixed interval for everyone. Contact a dentist if your gums bleed or you develop new symptoms.",
+   "how": "After examination, plaque and calculus are removed with ultrasonic and hand instruments, followed by polishing and home-care advice suited to your case.",
+   "pain": "Comfort and sensitivity vary with gum health and the cleaning needed. Tell the dentist about any discomfort so care can be adjusted.",
+   "sessions": "The number and spacing of visits depend on the examination, treatment chosen and your response. Your dentist will explain the plan before treatment.",
+   "after": "Brush twice daily with fluoride toothpaste and clean between teeth daily. Follow the personal advice given after your visit."
+  },
+  "ar": {
+   "what": "فحوصات دورية وتنظيف احترافي (إزالة الجير والتلميع) وإرشادات للحفاظ على صحة الأسنان واللثة واكتشاف أي مشكلة مبكرًا.",
+   "when": "تُحدد مواعيد المتابعة حسب صحة الفم ومخاطر كل حالة، وليس بفاصل ثابت للجميع. راجع طبيب الأسنان عند نزيف اللثة أو ظهور أعراض جديدة.",
+   "how": "بعد الفحص تُزال الترسبات والجير بأدوات الموجات فوق الصوتية واليدوية، ثم التلميع ونصائح عناية منزلية مناسبة لحالتك.",
+   "pain": "تختلف الراحة والحساسية حسب صحة اللثة والتنظيف المطلوب. أخبر الطبيب بأي انزعاج لتعديل الرعاية بما يناسبك.",
+   "sessions": "عدد الجلسات والفواصل بينها حسب الفحص والعلاج المختار واستجابة الحالة. يشرح الطبيب الخطة قبل بدء العلاج.",
+   "after": "نظف أسنانك مرتين يوميًا بمعجون يحتوي على الفلورايد ونظف بين الأسنان يوميًا. اتبع التعليمات الشخصية بعد الزيارة."
+  }
+ },
+ "Restorative Dentistry": {
+  "img": "https://images.pexels.com/photos/13264624/pexels-photo-13264624.jpeg?auto=compress&cs=tinysrgb&w=640",
+  "en": {
+   "what": "Fillings and restorations that repair decayed or damaged teeth and restore their shape and function.",
+   "when": "When there is decay, a chipped or broken tooth, an old failing filling, or sensitivity to sweets and cold drinks.",
+   "how": "The decayed part is removed and the cavity cleaned, then a tooth-colored composite restoration is placed, shaped and polished to match your bite.",
+   "pain": "Done with local anesthesia when needed, so the visit is usually comfortable.",
+   "sessions": "The number and spacing of visits depend on the examination, treatment chosen and your response. Your dentist will explain the plan before treatment.",
+   "after": "Numbness fades within hours; avoid chewing on that side until it does, and tell us if the filling feels high."
+  },
+  "ar": {
+   "what": "حشوات وترميمات لإصلاح الأسنان المصابة بالتسوس أو التلف واستعادة شكلها ووظيفتها.",
+   "when": "عند وجود تسوس أو كسر بالسن أو حشوة قديمة تالفة أو حساسية للحلويات والمشروبات الباردة.",
+   "how": "يُزال الجزء المتسوس ويُنظف التجويف، ثم يوضع حشو تجميلي بلون السن ويُشكل ويُلمع ليناسب الإطباق.",
+   "pain": "يتم بالتخدير الموضعي عند الحاجة، فتكون الزيارة مريحة غالبًا.",
+   "sessions": "عدد الجلسات والفواصل بينها حسب الفحص والعلاج المختار واستجابة الحالة. يشرح الطبيب الخطة قبل بدء العلاج.",
+   "after": "يزول التنميل خلال ساعات؛ تجنب المضغ على تلك الجهة حتى يزول، وأخبرنا إذا شعرت أن الحشو مرتفع."
+  }
+ },
+ "Endodontics": {
+  "img": "https://images.pexels.com/photos/5355837/pexels-photo-5355837.jpeg?auto=compress&cs=tinysrgb&w=640",
+  "en": {
+   "what": "Root canal treatment removes infected or inflamed pulp from inside the tooth, then seals the canals to relieve pain and save the natural tooth when possible.",
+   "when": "Deep decay reaching the nerve, severe or night pain, long-lasting sensitivity to hot or cold, or an abscess.",
+   "how": "Under local anesthesia the canals are cleaned, disinfected and filled; the tooth is then restored and often needs a crown afterward.",
+   "pain": "Local anesthesia is usually used. Soreness or swelling can follow treatment and should improve; contact your dentist if symptoms worsen or concern you.",
+   "sessions": "The number and spacing of visits depend on the examination, treatment chosen and your response. Your dentist will explain the plan before treatment.",
+   "after": "Avoid chewing on the tooth until its final restoration, and take any prescribed medication as directed."
+  },
+  "ar": {
+   "what": "علاج العصب يزيل لب السن المصاب أو الملتهب ثم يحكم إغلاق القنوات لتخفيف الألم والحفاظ على السن الطبيعي متى أمكن.",
+   "when": "التسوس العميق الواصل للعصب، أو الألم الشديد أو الليلي، أو حساسية طويلة للساخن والبارد، أو وجود خراج.",
+   "how": "تحت التخدير الموضعي تُنظف القنوات وتُطهر وتُحشى، ثم يُرمم السن وغالبًا يحتاج تاجًا بعد ذلك.",
+   "pain": "يُستخدم التخدير الموضعي عادةً. قد يحدث ألم أو تورم بعد العلاج ويُفترض أن يتحسن؛ راجع الطبيب إذا ساءت الأعراض أو أقلقتك.",
+   "sessions": "عدد الجلسات والفواصل بينها حسب الفحص والعلاج المختار واستجابة الحالة. يشرح الطبيب الخطة قبل بدء العلاج.",
+   "after": "تجنب المضغ على السن حتى استكمال ترميمه النهائي، والتزم بأي دواء موصوف."
+  }
+ },
+ "Cosmetic Dentistry": {
+  "img": "https://images.pexels.com/photos/6627572/pexels-photo-6627572.jpeg?auto=compress&cs=tinysrgb&w=640",
+  "en": {
+   "what": "Whitening, bonding, veneers and smile design to improve the look of teeth while respecting their natural character.",
+   "when": "Stains, small gaps, uneven edges, or discolored and slightly misshapen front teeth.",
+   "how": "After assessment and planning, treatment ranges from whitening sessions to bonding or custom-made veneers, chosen to fit your case.",
+   "pain": "Sensitivity or gum irritation can happen, especially with whitening. The dentist will explain the risks and comfort measures for the chosen procedure.",
+   "sessions": "The number and spacing of visits depend on the examination, treatment chosen and your response. Your dentist will explain the plan before treatment.",
+   "after": "Follow the instructions for the specific procedure. Whitening can cause temporary sensitivity or sore gums; contact your dentist if these bother you."
+  },
+  "ar": {
+   "what": "تبييض وحشوات تجميلية أمامية وقشور (فينير) وتصميم ابتسامة لتحسين مظهر الأسنان مع الحفاظ على طبيعتها.",
+   "when": "التصبغات أو الفراغات الصغيرة أو الحواف غير المتساوية أو تغير لون الأسنان الأمامية.",
+   "how": "بعد الفحص والتخطيط يتراوح العلاج بين جلسات التبييض والحشوات التجميلية أو القشور المصنوعة خصيصًا، بما يناسب حالتك.",
+   "pain": "قد تحدث حساسية أو تهيجات باللثة، خاصة مع التبييض. يشرح الطبيب المخاطر ووسائل الراحة المناسبة للإجراء المختار.",
+   "sessions": "عدد الجلسات والفواصل بينها حسب الفحص والعلاج المختار واستجابة الحالة. يشرح الطبيب الخطة قبل بدء العلاج.",
+   "after": "اتبع تعليمات الإجراء المحدد. قد يسبب التبييض حساسية مؤقتة أو ألمًا باللثة؛ راجع الطبيب إذا كانت الأعراض مزعجة."
+  }
+ },
+ "Prosthodontics": {
+  "img": "https://images.pexels.com/photos/6627600/pexels-photo-6627600.jpeg?auto=compress&cs=tinysrgb&w=640",
+  "en": {
+   "what": "Crowns, bridges and dentures that rebuild damaged teeth or replace missing ones to restore chewing and appearance.",
+   "when": "Heavily broken or root-treated teeth, missing teeth, or old failing replacements.",
+   "how": "The tooth is prepared, precise impressions or scans are taken, and a custom restoration is fabricated, tried in and fixed over visits.",
+   "pain": "Comfort measures and any need for local anesthesia depend on the procedure. Report soreness or a restoration that does not fit comfortably.",
+   "sessions": "The number and spacing of visits depend on the examination, treatment chosen and your response. Your dentist will explain the plan before treatment.",
+   "after": "Care differs for fixed restorations and removable dentures. Follow the fitting and cleaning instructions, and return if the fit or bite feels wrong."
+  },
+  "ar": {
+   "what": "تيجان وجسور وأطقم لإعادة بناء الأسنان التالفة أو تعويض المفقودة لاستعادة المضغ والمظهر.",
+   "when": "الأسنان شديدة التكسر أو المعالجة عصبيًا، أو الأسنان المفقودة، أو التركيبات القديمة التالفة.",
+   "how": "يُجهز السن وتُؤخذ طبعات أو مسح دقيق، وتُصنع التركيبة خصيصًا ثم تُجرب وتُثبت على جلسات.",
+   "pain": "وسائل الراحة والحاجة للتخدير الموضعي حسب الإجراء. أخبر الطبيب عن الألم أو التركيبة غير المريحة.",
+   "sessions": "عدد الجلسات والفواصل بينها حسب الفحص والعلاج المختار واستجابة الحالة. يشرح الطبيب الخطة قبل بدء العلاج.",
+   "after": "تختلف العناية بين التركيبات الثابتة والأطقم المتحركة. اتبع تعليمات التركيب والتنظيف وراجع الطبيب عند وجود مشكلة في الثبات أو الإطباق."
+  }
+ },
+ "Oral Surgery": {
+  "img": "https://images.pexels.com/photos/3845941/pexels-photo-3845941.jpeg?auto=compress&cs=tinysrgb&w=640",
+  "en": {
+   "what": "Simple and surgical extractions, wisdom tooth removal and minor surgical procedures inside the mouth, according to case assessment.",
+   "when": "Teeth that cannot be restored, problematic wisdom teeth, retained roots, or as part of a wider treatment plan.",
+   "how": "After examination and any needed X-ray, the area is numbed and the procedure is performed with sterile technique, with stitches when needed.",
+   "pain": "The procedure is done under local anesthesia; soreness and swelling for a few days afterward are expected and managed with medication and instructions.",
+   "sessions": "The number and spacing of visits depend on the examination, treatment chosen and your response. Your dentist will explain the plan before treatment.",
+   "after": "Follow the written aftercare for your procedure. Soft food, avoiding smoking and careful cleaning may be advised. Seek urgent dental help for bleeding that does not stop or severe or worsening pain or swelling."
+  },
+  "ar": {
+   "what": "الخلع العادي والجراحي وخلع ضرس العقل والإجراءات الجراحية البسيطة داخل الفم، حسب تقييم الحالة.",
+   "when": "الأسنان غير القابلة للإصلاح، أو ضروس العقل المسببة لمشاكل، أو الجذور المتبقية، أو كجزء من خطة علاج أوسع.",
+   "how": "بعد الفحص وأي أشعة لازمة يُخدر المكان ويُجرى الإجراء بتقنية معقمة، مع غرز عند الحاجة.",
+   "pain": "الإجراء يتم تحت التخدير الموضعي؛ وألم وتورم لأيام قليلة بعده متوقع ويُدار بالأدوية والتعليمات.",
+   "sessions": "عدد الجلسات والفواصل بينها حسب الفحص والعلاج المختار واستجابة الحالة. يشرح الطبيب الخطة قبل بدء العلاج.",
+   "after": "اتبع تعليمات ما بعد الإجراء. قد يُنصح بطعام لين وتجنب التدخين والتنظيف بحذر. اطلب رعاية أسنان عاجلة عند نزيف لا يتوقف أو ألم أو تورم شديد أو متزايد."
+  }
+ }
 };
+const SVC_SOURCES={"Preventive Dentistry": ["https://www.nhs.uk/Live-well/healthy-teeth-and-gums/dental-check-ups/", "https://www.nhs.uk/conditions/tooth-decay/"], "Restorative Dentistry": ["https://www.nhs.uk/live-well/healthy-teeth-and-gums/dental-treatments/", "https://www.nhs.uk/conditions/tooth-decay/"], "Endodontics": ["https://www.nhs.uk/tests-and-treatments/root-canal-treatment/"], "Cosmetic Dentistry": ["https://www.nhs.uk/tests-and-treatments/teeth-whitening/", "https://www.nhs.uk/live-well/healthy-teeth-and-gums/dental-treatments/"], "Prosthodontics": ["https://www.nhs.uk/live-well/healthy-teeth-and-gums/dental-treatments/", "https://www.nhs.uk/tests-and-treatments/dentures/"], "Oral Surgery": ["https://www.nhs.uk/tests-and-treatments/wisdom-tooth-removal/"]};
 let curDet="";
-function fillSvc(){const g=services.find(x=>x.name_en===curDet&&!x.parent),d=SVC_DETAILS[curDet];if(!g||!d)return;const D=d[lang]||d.en;$("#svcm-img").src=d.img;$("#svcm-img").alt=L(g,"name");$("#svcm-t").textContent=L(g,"name");$("#svcm-body").innerHTML=SVC_HEADS.map(h=>'<div class="svcm-sec"><h4>'+esc(h[lang])+'</h4><p>'+esc(D[h.k])+'</p></div>').join("");$("#svcm-procs").innerHTML=services.filter(x=>x.parent===curDet).map(x=>'<a href="#book" data-svc="'+esc(x.name_en)+'">'+esc(L(x,"name"))+'</a>').join("");const bk=$("#svcm-book");bk.textContent=t("s_book");bk.dataset.svc=curDet;$("#svcm-x").setAttribute("aria-label",lang==="ar"?"إغلاق":"Close")}
+function fillSvc(){const g=services.find(x=>x.name_en===curDet&&!x.parent),d=SVC_DETAILS[curDet];if(!g||!d)return;const D=d[lang]||d.en;$("#svcm-img").src=d.img;$("#svcm-img").alt=L(g,"name");$("#svcm-t").textContent=L(g,"name");$("#svcm-body").innerHTML=SVC_HEADS.map(h=>'<div class="svcm-sec"><h4>'+esc(h[lang])+'</h4><p>'+esc(D[h.k])+'</p></div>').join("")+ '<div class="svcm-sources">'+(lang==="ar"?"معلومات عامة وليست تشخيصًا. الخطة والتخدير والمتابعة حسب الفحص. مصادر تثقيفية: ":"General education, not a diagnosis. Treatment, anesthesia and follow-up depend on examination. Educational sources: ")+(SVC_SOURCES[curDet]||[]).map((u,i)=>'<a href="'+u+'" target="_blank" rel="noopener">NHS '+(i+1)+'</a>').join(' · ')+'</div>';$("#svcm-procs").innerHTML=services.filter(x=>x.parent===curDet).map(x=>'<a href="#book" data-svc="'+esc(x.name_en)+'">'+esc(L(x,"name"))+'</a>').join("");const bk=$("#svcm-book");bk.textContent=t("s_book");bk.dataset.svc=curDet;$("#svcm-x").setAttribute("aria-label",lang==="ar"?"إغلاق":"Close")}
 function openSvc(id){curDet=id;fillSvc();$("#svcm").hidden=false;document.body.style.overflow="hidden"}
 function closeSvc(){const m=$("#svcm");if(m&&!m.hidden){m.hidden=true;document.body.style.overflow=""}}
 function renderServices(){
