@@ -2,7 +2,7 @@
 "use strict";
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
-const T={en:{brand:"Dr Youssef Elgohary",n_about:"About",n_cases:"Cases",n_services:"Services",n_gallery:"Smile Gallery",n_book:"Book",n_contact:"Contact",
+const T={en:{ac1:"Bachelor of Dentistry, Al-Azhar University, Cairo",ac2:"Dentist, Egypt",brand:"Dr Youssef Elgohary",n_about:"About",n_cases:"Cases",n_services:"Services",n_gallery:"Smile Gallery",n_book:"Book",n_contact:"Contact",
 h_sub:"Modern dental care focused on comfort, precision, and personalized treatment for every patient.",h_book:"Book Your Appointment",h_cases:"Explore My Cases",h_serv:"Explore Dental Services",h_tag:"Dentist | Restoring Healthy & Confident Smiles",f1:"Zagazig, Egypt",f2:"Personalized Dental Care",f3:"Available for Appointments",chip1:"Dentist",chip1s:"Personalized & patient-centered care",chip2:"Zagazig, Sharqia",chip2s:"Sat to Thu, 5 to 10 PM",
 a_title:"Dr Youssef Elgohary",a_tag:"Dentist | Personalized & Patient-Centered Dental Care",a_edu:"Education and experience",a_int:["Oral surgery","Endodontics","Pediatric dentistry","Cosmetic restorations","Veneers"],
 c_title:"My Dental Cases",c_lead:"Clinical cases with before and after photos, published with patient consent.",c_all:"All",c_empty:"Cases will appear here soon. Each case is published only with the patient's consent.",
@@ -15,7 +15,7 @@ e_fill:"Please complete all required fields.",e_phone:"Please enter a valid phon
 ok:"Thank you. Your request was received. The clinic will contact you to confirm. This is not yet a confirmed appointment.",ok_wa:"Also send it on WhatsApp",
 k_title:"Contact",k_wa:"WhatsApp",k_phone:"Phone",k_email:"Email",k_loc:"Location",k_hours:"Working hours",k_map:"Open map",k_soc:"Social",
 back:"Back to cases",cd_desc:"Case description",cd_diag:"Diagnosis",cd_plan:"Treatment plan",cd_steps:"Treatment details",cd_res:"Result",foot:"Dental care in Zagazig, Egypt.",wa_msg:"Hello Dr Youssef, I would like to book an appointment."},
-ar:{brand:"د. يوسف الجوهري",n_about:"نبذة",n_cases:"الحالات",n_services:"الخدمات",n_gallery:"معرض الابتسامات",n_book:"احجز",n_contact:"تواصل",
+ar:{ac1:"بكالوريوس طب الأسنان، جامعة الأزهر، القاهرة",ac2:"طبيب أسنان، مصر",brand:"د. يوسف الجوهري",n_about:"نبذة",n_cases:"الحالات",n_services:"الخدمات",n_gallery:"معرض الابتسامات",n_book:"احجز",n_contact:"تواصل",
 h_sub:"رعاية أسنان حديثة تركّز على الراحة والدقة وعلاج مخصص لكل مريض.",h_book:"احجز موعدك",h_cases:"استكشف حالاتي",h_serv:"استكشف خدماتي",h_tag:"طبيب أسنان | لاستعادة ابتسامات صحية وواثقة",f1:"الزقازيق، مصر",f2:"رعاية أسنان شخصية",f3:"متاح للحجز",chip1:"طبيب أسنان",chip1s:"رعاية شخصية تضع المريض أولًا",chip2:"الزقازيق، الشرقية",chip2s:"من السبت للخميس، ٥ إلى ١٠ م",
 a_title:"د. يوسف الجوهري",a_tag:"طبيب أسنان | رعاية أسنان شخصية تضع المريض أولًا",a_edu:"التعليم والخبرة",a_int:["جراحة الفم","علاج الجذور","أسنان الأطفال","الحشوات التجميلية","الفينير"],
 c_title:"حالاتي السنية",c_lead:"حالات سريرية بصور قبل وبعد، تُنشر بموافقة المريض.",c_all:"الكل",c_empty:"ستظهر الحالات هنا قريبًا. لا تُنشر أي حالة إلا بموافقة المريض.",
