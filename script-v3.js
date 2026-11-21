@@ -44,7 +44,9 @@ function render(){
  $$("[data-i18n-html]").forEach(e=>e.innerHTML=HTMLT[lang]);
  document.title=lang==="ar"?"د. يوسف الجوهري | طبيب أسنان في الزقازيق":"Dr Youssef Elgohary | Dentist in Zagazig, Egypt";
  $("#bio").innerHTML=paras(L(S,"bio"));
- if(S.portrait_url)$(".frame img").src=SB.photoUrl(S.portrait_url);
+ /* Default portrait ships as local hero.jpg for fast, reliable first paint; only override when the saved setting points at a different image. */
+ if(S.portrait_url&&S.portrait_url!=="mwqph5lgziqjh.jpg")$(".frame img").src=SB.photoUrl(S.portrait_url);
+ {const hi=$(".frame img");hi.onerror=function(){this.onerror=null;if(!this.src.endsWith("hero.jpg"))this.src="hero.jpg"};}
  $("#int").innerHTML=T[lang].a_int.map(x=>"<span>"+esc(x)+"</span>").join("");
  $("#tl").innerHTML=L(S,"timeline").split("\n").filter(Boolean).map(l=>{const p=l.split("|");return "<div><b>"+esc((p[0]||"").trim())+"</b><span>"+esc((p[1]||"").trim())+"</span></div>"}).join("");
  const co=L(S,"courses").trim();$("#courses").innerHTML=co?"<div class='eyebrow'>"+(lang==="ar"?"الدورات والتطوير المهني":"Courses and development")+"</div><div class='tl'>"+co.split("\n").filter(Boolean).map(l=>"<div><b>"+esc(l)+"</b></div>").join("")+"</div>":"";
