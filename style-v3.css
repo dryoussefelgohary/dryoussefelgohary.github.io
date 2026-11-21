@@ -178,3 +178,9 @@ section{scroll-margin-top:76px}.care{background:#fff}.care-grid{display:grid;gri
 .svcm-box{padding:0 18px 18px}
 .svcm-box>img{width:calc(100% + 36px);margin:0 -18px 14px}
 }
+
+/* fix9: explicit button contrast and source notes */
+.s .btn-line{background:transparent;color:#f1d49b;border-color:#d4b374}
+.s .btn-line:hover,.s .btn-line:focus-visible{background:#f1d49b;color:#0b1f3a}
+.svcm-sources{font-size:.78rem;color:#d5dfeb;line-height:1.65;border-top:1px solid #ffffff25;padding-top:14px;margin-top:20px}
+.svcm-sources a{color:#f1d49b;text-decoration:underline;text-underline-offset:3px}
