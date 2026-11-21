@@ -6,7 +6,7 @@ self.addEventListener('push', e => {
     body: d.body || '',
     data: { url: d.url || '/admin.html' },
     icon: '/emblem-gold.png',
-    badge: '/emblem-gold.png',
+    badge: 'https://wslxnsfhjluzxdtzsxnz.supabase.co/storage/v1/object/public/assets/7-notification-badge.png',
     dir: 'auto'
   }));
 });
